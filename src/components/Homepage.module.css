@@ -1,0 +1,16 @@
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heroHeading {
+    display: flex;
+    flex-direction: column;
+}
+
+.accent {
+    color: gray;
+    text-transform: uppercase;
+    font-weight: 800;
+}
