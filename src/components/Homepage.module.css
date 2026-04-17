@@ -14,3 +14,13 @@
     text-transform: uppercase;
     font-weight: 800;
 }
+
+.introContainer {
+    padding: 120px 64px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+}
