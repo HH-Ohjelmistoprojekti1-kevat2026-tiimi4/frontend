@@ -127,8 +127,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 3.35rem;
-    padding: 0.8rem 1.4rem;
+    padding: 0.5rem 1.4rem;
     background: #111111;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
@@ -137,15 +136,11 @@
     letter-spacing: 0.03em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
-    box-shadow: 0 0.55rem 1.2rem rgba(17, 17, 17, 0.12);
 }
 
 .cta:hover,
 .cta:focus-visible {
-    transform: translateY(-1px);
-    background: #000000;
-    box-shadow: 0 0.8rem 1.4rem rgba(17, 17, 17, 0.16);
+    background: #222222;
 }
 
 .footer {

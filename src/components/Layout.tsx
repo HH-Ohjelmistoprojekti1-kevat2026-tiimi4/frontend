@@ -1,13 +1,13 @@
 import style from './Layout.module.css'
 import Navbar from './Navbar'
-import type {ReactNode} from "react";
+import {Outlet} from "react-router-dom";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout() {
     return (
         <>
             <Navbar />
             <div className={style.container}>
-                {children}
+                <Outlet />
             </div>
         </>
     )

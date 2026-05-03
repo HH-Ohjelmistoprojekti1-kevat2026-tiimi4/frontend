@@ -4,13 +4,6 @@ import style from './Homepage.module.css'
 export default function Homepage() {
     return (
         <main className={style.page}>
-            <header className={style.topbar}>
-                <div className={style.brand}>LEMMIKKIPUOTI</div>
-                <nav className={style.nav} aria-label="Päävalikko">
-                    <Link className={style.navLink} to="/meista">Meistä</Link>
-                    <Link className={style.navLink} to="/tuotteet">Tuotteet</Link>
-                </nav>
-            </header>
 
             <section className={style.heroFrame} aria-label="Etusivun esittely">
                 <div className={style.heroImagePanel}>
