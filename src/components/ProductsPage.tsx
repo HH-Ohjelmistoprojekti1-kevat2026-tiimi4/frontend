@@ -1,9 +1,22 @@
-import {useEffect, useState} from "react";
-import type {Product} from "../types/api.ts";
+import { useEffect, useState } from "react";
+import { type Manufacturer, type Product } from "../types/api.ts";
 import style from "./ProductsPage.module.css";
 
-export default function ProductsPage () {
+export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [manufacturers, setManufacturers] = useState<Manufacturer[]>([]);
+
+    const fetchProductsByManufacturer = (id: number) => {
+        fetch(`https://backend-production-d72d.up.railway.app/api/products/manufacturer/${id}`)
+            .then((response) => response.json())
+            .then((data) => setProducts(data));
+    }
+
+    const fetchAllProducts = () => {
+        fetch("https://backend-production-d72d.up.railway.app/api/products")
+            .then((res) => res.json())
+            .then((data) => setProducts(data));
+    };
 
     useEffect(() => {
         fetch("https://backend-production-d72d.up.railway.app/api/products")
@@ -19,13 +32,36 @@ export default function ProductsPage () {
             });
     }, []);
 
+    useEffect(() => {
+        fetch("https://backend-production-d72d.up.railway.app/api/manufacturers")
+            .then((res) => {
+                if (!res.ok) throw new Error("Failed to fetch manufacturers");
+                return res.json();
+            })
+            .then((data) => {
+                setManufacturers(data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }, []);
+
     return (
         <main className={style.page}>
             <h1>Products</h1>
 
-            <button className={style.cta} type="button">
-                Nappi
-            </button>
+            <div className={style.buttonContainer}>
+                <button className={style.cta} type="button" onClick={fetchAllProducts}>
+                    All products
+                </button>
+                {manufacturers.map((manufacturer) => (
+                    <button className={style.cta} type="button"
+                        key={manufacturer.manufacturerId}
+                        onClick={() => fetchProductsByManufacturer(manufacturer.manufacturerId)}>
+                        {manufacturer.name}
+                    </button>
+                ))}
+            </div>
 
             <div className={style.grid}>
                 {products.map((product) => (
