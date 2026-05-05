@@ -16,7 +16,7 @@ export default function Homepage() {
 
                 <div className={style.heroTextPanel}>
                     <p className={style.heroEyebrow}>Tervetuloa</p>
-                    <h2 className={style.heroTitle}>LEMMIKKIPUOTIIN</h2>
+                    <h1 className={style.heroTitle}>LEMMIKKIPUOTIIN</h1>
                 </div>
             </section>
 

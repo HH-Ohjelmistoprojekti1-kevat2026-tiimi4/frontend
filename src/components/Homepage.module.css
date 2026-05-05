@@ -84,7 +84,7 @@
     display: grid;
     align-content: center;
     justify-items: start;
-    padding: clamp(2rem, 6vw, 4rem);
+    padding: clamp(4rem, 6vw, 4rem);
 }
 
 .heroEyebrow {
@@ -100,7 +100,7 @@
     line-height: 0.98;
     font-weight: 800;
     letter-spacing: -0.05em;
-    max-width: 12ch;
+    max-width: 14ch;
 }
 
 .content {
