@@ -15,20 +15,20 @@ export default function Homepage() {
                 </div>
 
                 <div className={style.heroTextPanel}>
-                    <p className={style.heroEyebrow}>Jotain</p>
-                    <h1 className={style.heroTitle}>TEKSTIÄ TÄHÄN</h1>
+                    <p className={style.heroEyebrow}>Tervetuloa</p>
+                    <h1 className={style.heroTitle}>LEMMIKKIPUOTIIN</h1>
                 </div>
             </section>
 
             <section className={style.content}>
                 <div className={style.copyBlock}>
                     <p>
-                        Jollain serif fontilla vaikka tekstiä tähän esim. Lorem Ipsum ja niin edelleen.
+                        Lemmikkipuodista löydät tämän hetken trendikkäimmät koiranvaatteen, herkullisimmat koiranherkut ja hauskimmat koiranlelut!
                         <br />
-                        Tässä vähän lisää tekstiä.
+                        Tervetuloa shoppailemaan!
                     </p>
 
-                    <p>En tiedä tuleeko paljon tällaista.</p>
+                    <p>Hau hau!</p>
                 </div>
 
                 <Link className={style.cta} to="/tuotteet">
@@ -37,7 +37,6 @@ export default function Homepage() {
             </section>
 
             <footer className={style.footer}>
-                <p>Tänne tulee esim joku footer</p>
                 <p>(c) Lemmikkipuoti 2025</p>
             </footer>
         </main>
