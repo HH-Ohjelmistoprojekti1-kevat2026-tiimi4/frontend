@@ -1,7 +1,16 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import style from './Homepage.module.css'
 
 export default function Homepage() {
+    const [dogImage, setDogImage] = useState<string>('')
+
+    useEffect(() => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => setDogImage(data.message))
+    }, [])
+
     return (
         <main className={style.page}>
 
@@ -9,7 +18,7 @@ export default function Homepage() {
                 <div className={style.heroImagePanel}>
                     <img
                         className={style.heroImage}
-                        src="https://picsum.photos/900/700"
+                        src={dogImage}
                         alt="Vaihtuva esimerkkikuva"
                     />
                 </div>
@@ -23,7 +32,7 @@ export default function Homepage() {
             <section className={style.content}>
                 <div className={style.copyBlock}>
                     <p>
-                        Lemmikkipuodista löydät tämän hetken trendikkäimmät koiranvaatteen, herkullisimmat koiranherkut ja hauskimmat koiranlelut!
+                        Lemmikkipuodista löydät tämän hetken cooleimmat koiranvaatteet, herkullisimmat koiranherkut ja kivoimmat koiranlelut!
                         <br />
                         Tervetuloa shoppailemaan!
                     </p>
