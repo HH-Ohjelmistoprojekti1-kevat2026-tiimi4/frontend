@@ -6,7 +6,7 @@ import ProductsPage from "./components/ProductsPage.tsx";
 import About from './components/About.tsx';
 import Singup from './components/Singup.tsx';
 import Singin from './components/Signin.tsx';
-import OrderProduct from './components/OrderProduct.tsx';
+import ReserveProduct from './components/ReserveProduct.tsx';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
           <Route path="/tuotteet" element={<ProductsPage />} />
           <Route path="/meista" element={<About />} />
           <Route path="/rekisteroidy" element={<Singup />} />
-          <Route path="/varaa" element={<OrderProduct />} />
+          <Route path="/varaa" element={<ReserveProduct />} />
           <Route path="/kirjaudu" element={<Singin />} />
         </Route>
       </Routes>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { type Manufacturer, type Product } from "../types/api.ts";
 import style from "./ProductsPage.module.css";
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [manufacturers, setManufacturers] = useState<Manufacturer[]>([]);
+    const navigate = useNavigate();
 
     const fetchProductsByManufacturer = (id: number) => {
         fetch(`https://backend-production-d72d.up.railway.app/api/products/manufacturer/${id}`)
@@ -17,6 +18,27 @@ export default function ProductsPage() {
         fetch("https://backend-production-d72d.up.railway.app/api/products")
             .then((res) => res.json())
             .then((data) => setProducts(data));
+    };
+
+    const handleReserve = (product: Product) => {
+
+        const user = localStorage.getItem("user");
+
+        if (!user) {
+            navigate("/kirjaudu", {
+                state: {
+                    message: "Kirjaudu sisään varataksesi tuotteen"
+                }
+            });
+
+            return;
+        }
+
+        navigate("/varaa", {
+            state: {
+                product
+            }
+        });
     };
 
     useEffect(() => {
@@ -78,9 +100,9 @@ export default function ProductsPage() {
                             <p className={style.price}>{product.price.toFixed(2)} €</p>
                         </div>
                         <p className={style.metaText}>{product.color}, {product.size}</p>
-                        <Link className={style.cta} to="/varaa">
+                        <button className={style.cta} onClick={() => handleReserve(product)}>
                             Varaa
-                        </Link>
+                        </button>
                     </div>
                 ))}
             </div>
