@@ -1,0 +1,36 @@
+.page {
+    padding: 2rem;
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.4rem;
+    background: #111111;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 20px;
+    width: auto;
+    align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.cta:hover,
+.cta:focus-visible {
+    background: #222222;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+    margin-top: 40px;
+}

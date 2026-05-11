@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { type Manufacturer, type Product } from "../types/api.ts";
 import style from "./ProductsPage.module.css";
+import { Link } from 'react-router-dom'
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -48,11 +49,11 @@ export default function ProductsPage() {
 
     return (
         <main className={style.page}>
-            <h1>Products</h1>
+            <h1>Tuotteet</h1>
 
             <div className={style.buttonContainer}>
                 <button className={style.cta} type="button" onClick={fetchAllProducts}>
-                    All products
+                    Kaikki tuotteet
                 </button>
                 {manufacturers.map((manufacturer) => (
                     <button className={style.cta} type="button"
@@ -77,9 +78,9 @@ export default function ProductsPage() {
                             <p className={style.price}>{product.price.toFixed(2)} €</p>
                         </div>
                         <p className={style.metaText}>{product.color}, {product.size}</p>
-                        <button className={style.cta}>
+                        <Link className={style.cta} to="/varaa">
                             Varaa
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>
